@@ -1,7 +1,6 @@
 # Working with python
 ---
 ## Extract Data from JSONL to Excel 
-## Libraries Used
 This Python script extracts data from a JSONL file and creates an Excel file with selected attributes. It uses the argparse library for command-line argument handling and the pandas library for working with data in DataFrames.
 
 - Imports necessary libraries: json, os, pandas (as pd), and argparse.
@@ -78,4 +77,45 @@ for filename in os.listdir(input_dir):
             print(f"Processed {filename} and saved as {output_filename}")
 
 print("Excel files generated for each JSONL file and stored in the 'outputs'")
+```
+### generator.sh
+- This bash file works along with the main.py file
+- Sets default values for the input_dir and output_dir variables.
+- Defines flags (-i and -o) and their default values using the getopts command.
+- Iterates through each .jsonl file in the specified input directory.
+- For each JSONL file, it determines the output filename by changing the extension to .xlsx.
+- Calls the Python script (main.py) with flags to process the JSONL file and create an Excel file.
+- Prints a message indicating that it processed the JSONL file and created the corresponding Excel file.
+
+```bash
+#!/bin/bash
+
+# Default values for flags
+input_dir='dataset/data_files'
+output_dir='../outputs'
+
+# Define flags and their default values
+while getopts "i:o:" opt; do
+    case $opt in
+        i) input_dir="$OPTARG";;
+        o) output_dir="$OPTARG";;
+        \?) echo "Invalid option: -$OPTARG" >&2; exit 1;;
+    esac
+done
+
+# Loop through each JSONL file in the input directory
+for filename in "$input_dir"/*.jsonl; do
+    if [ -f "$filename" ]; then
+        # Determine the output filename based on the input JSONL filename
+        output_filename=$(basename -- "$filename" .jsonl).xlsx
+        output_file="$output_dir/$output_filename"
+
+        # Call the Python script with flags to extract data and create an Excel file
+        python main.py --input "$filename" --output "$output_file"
+
+        echo "Processed $filename and created $output_file"
+    fi
+done
+
+echo "Excel files generated for each JSONL file and stored in the 'outputs'"
 ```
