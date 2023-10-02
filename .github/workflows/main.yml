@@ -31,4 +31,4 @@ jobs:
                    client_secret	: "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"      
 
           }} > token_v2.json
-          drive push -no-prompt -destination ${{ computer graphics/ backup }}
+          drive push -no-prompt -destination ${{ computer_graphics/ backup }}
