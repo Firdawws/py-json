@@ -151,44 +151,52 @@ In this section we aim to generate separate jsonl file for test, train and dev f
 
 ### Separate.py
 ```python
-Define Input and Output Directories:
+import json
+import os
 
-    It specifies the input directory (input_dir) containing the original JSONL files.
-    It defines the output directory (output_dir) where separated JSONL files will be saved.
+# Define the input directory containing the original JSONL files
+input_dir = 'dataset/data'
 
-Create Output Directory:
+# Define the output directory where the separated JSONL files will be saved
+output_dir = 'output_jsonl'
 
-    It creates the output directory specified in output_dir if it doesn't already exist using os.makedirs(output_dir, exist_ok=True).
+# Create the output directory if it doesn't exist
+os.makedirs(output_dir, exist_ok=True)
 
-Define Languages and Partitions:
+# Define the languages and partitions
+languages = ['en', 'sw', 'de']
+partitions = ['test', 'train', 'dev']
 
-    It lists the languages in the languages list (['en', 'sw', 'de']) and partitions in the partitions list (['test', 'train', 'dev']) that need to be processed.
+# Loop through each language and partition
+for lang in languages:
+    for partition in partitions:
+        # Define the output JSONL file name
+        output_file_name = f'{lang}-{partition}.jsonl'
+        output_file_path = os.path.join(output_dir, output_file_name)
 
-Loop Through Languages and Partitions:
+        # Create an empty list to store records for the current language and partition
+        records = []
 
-    It iterates through each language (lang) and partition (partition) in nested loops.
+        # Loop through the original JSONL files
+        for filename in os.listdir(input_dir):
+            if filename.endswith('.jsonl'):
+                file_path = os.path.join(input_dir, filename)
 
-Define Output JSONL File:
+                with open(file_path, 'r', encoding='utf-8') as jsonl_file:
+                    lines = jsonl_file.readlines()
+                    for line in lines:
+                        data = json.loads(line)
+                        # Check if the data matches the current language and partition
+                        if data.get('locale', '').startswith(lang) and data.get('partition') == partition:
+                            records.append(data)
 
-    For each combination of language and partition, it defines the output JSONL file name based on the language and partition, e.g., 'en-test.jsonl'.
-    It creates the full output file path by joining the output directory and the output file name.
+        # Write the selected records to the output JSONL file
+        with open(output_file_path, 'w', encoding='utf-8') as output_file:
+            for record in records:
+                json.dump(record, output_file, ensure_ascii=False)
+                output_file.write('\n')
 
-Create an Empty Records List:
+        print(f'Generated {output_file_name}')
 
-    It initializes an empty list called records to store the records that match the current language and partition.
-
-Loop Through Original JSONL Files:
-
-    It iterates through the original JSONL files in the input directory.
-    For each JSONL file, it reads its content line by line.
-
-Filter and Collect Records:
-
-    It parses each line as JSON and checks if the data matches the current language and partition based on the "locale" and "partition" attributes.
-    If a data record matches the language and partition criteria, it is appended to the records list.
-
-Write Selected Records to Output JSONL File:
-
-    It writes the selected records to the corresponding output JSONL file.
-    For each record in the records list, it serializes it as JSON and writes it to the output file, ensuring that non-ASCII characters are handled properly.
+print('Separate JSONL files generated for each language and partition.')
 ```
