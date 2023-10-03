@@ -227,11 +227,11 @@ A copy of this project can be found on [google drive](https://drive.google.com/d
 - Replace myenv with the environment name.
 
 - Activate the virtual environment:
-- on Windows:
+on Windows:
 ```
 python -m venv myenv
 ```
-- On mac and linux:
+On mac and linux:
 ```
   source myenv/bin/activate
 ```
