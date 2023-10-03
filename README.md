@@ -200,3 +200,26 @@ for lang in languages:
 
 print('Separate JSONL files generated for each language and partition.')
 ```
+## Project Archive
+A copy of this project can be found on [google drive] (https://drive.google.com/drive/folders/1zws5_6kwJGcnTFvyOO2qrLPvu5gwDVUo?usp=drive_link)
+- First you will need to create an python environment by running the following commands:
+- Create Virtual environment
+```
+  python -m venv myenv
+```
+- Replace myenv with the environment name.
+
+- Activate the virtual environment:
+- on Windows:
+```
+python -m venv myenv
+```
+- On mac and linux:
+```
+  source myenv/bin/activate
+```
+- And to deactivate the environment:
+```
+deactivate
+```
+- Download the project directory and move it into the python environment
