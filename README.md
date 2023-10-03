@@ -235,6 +235,10 @@ python -m venv myenv
 ```
   source myenv/bin/activate
 ```
+- Install pandas:
+  ```
+  pip install pandas
+  ```
 - And to deactivate the environment:
 ```
 deactivate
