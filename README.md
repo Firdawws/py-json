@@ -77,41 +77,19 @@ for filename in os.listdir(input_dir):
 
 print("Excel files generated for each JSONL file and stored in the 'outputs'")
 ```
-### run.sh
+### generator.sh
 - This bash file works along with the main.py file
 - It access the main.py file and runs it
 
 ```bash
 #!/bin/bash
+script_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-# Default values for flags
-input_dir='dataset/data_files'
-output_dir='../outputs'
+# Run your Python script (replace 'main.py' with your Python script name)
+python "$script_dir/main.py"
 
-# Define flags and their default values
-while getopts "i:o:" opt; do
-    case $opt in
-        i) input_dir="$OPTARG";;
-        o) output_dir="$OPTARG";;
-        \?) echo "Invalid option: -$OPTARG" >&2; exit 1;;
-    esac
-done
+# Deactivate the Anaconda environment
 
-# Loop through each JSONL file in the input directory
-for filename in "$input_dir"/*.jsonl; do
-    if [ -f "$filename" ]; then
-        # Determine the output filename based on the input JSONL filename
-        output_filename=$(basename -- "$filename" .jsonl).xlsx
-        output_file="$output_dir/$output_filename"
-
-        # Call the Python script with flags to extract data and create an Excel file
-        python main.py --input "$filename" --output "$output_file"
-
-        echo "Processed $filename and created $output_file"
-    fi
-done
-
-echo "Excel files generated for each JSONL file and stored in the 'outputs'"
 ```
 In summary, the Bash script is responsible for iterating through JSONL files in a specified input directory, determining output filenames, and calling the Python script to process and convert the data to Excel format. The Python script, on the other hand, handles the actual data processing, filtering, and Excel file creation based on command-line arguments. Together, these scripts work as a pipeline to convert JSONL files into Excel files 
 
