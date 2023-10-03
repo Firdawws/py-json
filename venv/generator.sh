@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Default values for flags
-input_dir='dataset/data_files'
-output_dir='../outputs'
+input_dir='dataset/mydataset'
+output_dir='outputs'
 
 # Define flags and their default values
 while getopts "i:o:" opt; do
