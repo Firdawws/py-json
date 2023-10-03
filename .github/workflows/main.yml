@@ -1,0 +1,34 @@
+name: Backup to Google Drive
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup drive CLI
+        run: |
+          wget -O drive https://drive.google.com/uc?id=0B3X9GlR6EmbnMHBMVWtKaEZXdDg
+          chmod +x drive
+          sudo install drive /usr/local/bin/drive
+
+      - name: Push to Google Drive
+        run: |
+          echo {
+          "web":{        
+                   client_id	: "391140311633-atvpiave2b3f97l9m9c13jm1o8ot8be9.apps.googleusercontent.com"
+                   project_id :	"drive-backup-400819"
+                   auth_uri :	"https://accounts.google.com/o/oauth2/auth"
+                   token_uri	: "https://oauth2.googleapis.com/token"
+                   auth_provider_x509_cert_url :	"https://www.googleapis.com/oauth2/v1/certs"
+                   client_secret	: "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"      
+
+          }} > token_v2.json
+          drive push -no-prompt -destination ${{ 1oDyMThMFyXJzodxV7TrzWlBol0c30z-c }}
