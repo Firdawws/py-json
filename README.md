@@ -1,4 +1,4 @@
-# Working with python
+# Python3 Development Environment	
 - First you will need to create an python environment by running the following commands:
 - Create Virtual environment
 ```
@@ -34,7 +34,31 @@ deactivate
 ```
 - Download the project directory and move it into the python environment
 
-## Extract Data from JSONL to Excel 
+
+## Task 2. Working with the Files
+
+1. Generating JSONL Files:
+-  Generated separate JSONL files for English (en), Swahili (sw), and German (de) translations, containing test, train, and dev data.
+Creating Large JSON File:
+
+Created a large JSON file consolidating translations from en to xx with id and utt for all train sets.
+E-print Application:
+
+Utilized E-print application to pretty print the JSON file structure.
+File Backup and Upload:
+
+Uploaded all the generated files to GithHb for referencing as well as editing.
+Version Control:
+
+Uploaded all the changes to GitHub.
+
+
+
+
+
+
+
+## 1. Extract Data from JSONL to Excel 
 This Python script extracts data from a JSONL file and creates an Excel file with selected attributes. It uses the argparse library for command-line argument handling and the pandas library for working with data in DataFrames.
 
 - Imports necessary libraries: json, os, pandas (as pd), and argparse.
@@ -127,6 +151,8 @@ python "$script_dir/main.py"
 
 ```
 In summary, the Bash script is responsible for iterating through JSONL files in a specified input directory, determining output filenames, and calling the Python script to process and convert the data to Excel format. The Python script, on the other hand, handles the actual data processing, filtering, and Excel file creation based on command-line arguments. Together, these scripts work as a pipeline to convert JSONL files into Excel files 
+
+
 
 ## Generating seperate files for English, Swahili and German
 In this section we aim to generate separate jsonl file for test, train and dev for different languages
