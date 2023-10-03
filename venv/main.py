@@ -7,8 +7,8 @@ import argparse
 parser = argparse.ArgumentParser(description='Process JSONL files and save relevant data to Excel files.')
 
 # Add flags and arguments
-parser.add_argument('--input-dir', '-i', type=str, default='./data/dataset', help='Directory containing JSONL files')
-parser.add_argument('--output-dir', '-o', type=str, default='./outputs', help='Output directory for Excel files')
+parser.add_argument('--input-dir', '-i', type=str, default='dataset/mydataset', help='Directory containing JSONL files')
+parser.add_argument('--output-dir', '-o', type=str, default='outputs', help='Output directory for Excel files')
 parser.add_argument('--language', '-l', type=str, default='en', help='Language code to filter JSONL files')
 parser.add_argument('--verbose', '-v', action='store_true', help='Enable verbose mode')
 
@@ -49,7 +49,7 @@ for filename in os.listdir(input_dir):
                     })], ignore_index=True)
 
         # Determine the output filename based on the input JSONL filename
-        output_filename = os.path.splitext(language + filename)[0] + '.xlsx'
+        output_filename = os.path.splitext(language + '-' + filename)[0] + '.xlsx'
         output_file = os.path.join(output_dir, output_filename)
 
         # Write the selected data to an Excel file
