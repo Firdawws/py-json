@@ -1,4 +1,4 @@
-##1. Python3 Development Environment	
+## Python3 Development Environment	
 - First you will need to create an python environment by running the following commands:
 - Create Virtual environment
 ```
@@ -35,7 +35,7 @@ deactivate
 - Download the project directory and move it into the python environment
   
 
-## 1. Extract Data from JSONL to Excel 
+##  Extract Data from JSONL to Excel 
 This Python script extracts data from a JSONL file and creates an Excel file with selected attributes. It uses the argparse library for command-line argument handling and the pandas library for working with data in DataFrames.
 
 - Imports necessary libraries: json, os, pandas (as pd), and argparse.
