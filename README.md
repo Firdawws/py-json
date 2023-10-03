@@ -42,7 +42,7 @@ This Python script extracts data from a JSONL file and creates an Excel file wit
 - Creates an ArgumentParser object (parser) to parse command-line arguments.
 - Defines several command-line arguments such as input directory (--input-dir), output directory (--output-dir), language code (--language), and a verbose mode flag (--verbose).
 - Parses the command-line arguments and stores their values in corresponding variables (input_dir, output_dir, language, verbose).
-- Creates the output directory (output_dir) if it doesn't already exist.
+- creates the output directory (output_dir) if it doesn't already exist.
 - Iterates through each file in the input directory (input_dir) and selects files with a .jsonl extension.
 - For each selected JSONL file, it reads the file, extracts specific attributes (id, utt, annot_utt) from the JSON data, and filters records based on the specified language code (language).
 - We then creates a Pandas DataFrame (selected_data) to store the filtered data.
