@@ -13,7 +13,7 @@ python -m venv myenv
 ```
 on mac and linux:
 ```
-  source myenv/bin/activate
+  Source myenv/bin/activate
 ```
 - Install pandas:
   ```
