@@ -77,14 +77,9 @@ for filename in os.listdir(input_dir):
 
 print("Excel files generated for each JSONL file and stored in the 'outputs'")
 ```
-### generator.sh
+### run.sh
 - This bash file works along with the main.py file
-- Sets default values for the input_dir and output_dir variables.
-- Defines flags (-i and -o) and their default values using the getopts command.
-- Iterates through each .jsonl file in the specified input directory.
-- For each JSONL file, it determines the output filename by changing the extension to .xlsx.
-- Calls the Python script (main.py) with flags to process the JSONL file and create an Excel file.
-- Prints a message indicating that it processed the JSONL file and created the corresponding Excel file.
+- It access the main.py file and runs it
 
 ```bash
 #!/bin/bash
