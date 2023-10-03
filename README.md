@@ -11,7 +11,7 @@ on Windows:
 ```
 python -m venv myenv
 ```
-on mac and linux:
+on macos and linux:
 ```
   source myenv/bin/activate
 ```
