@@ -1,4 +1,39 @@
 # Working with python
+- First you will need to create an python environment by running the following commands:
+- Create Virtual environment
+```
+  python -m venv myenv
+```
+- Replace myenv with the environment name.
+
+- Activate the virtual environment:
+on Windows:
+```
+python -m venv myenv
+```
+On mac and linux:
+```
+  source myenv/bin/activate
+```
+- Install pandas:
+  ```
+  pip install pandas
+  ```
+  
+- Install numpy:
+  ```
+  pip install numpy
+  ```
+- clone the repository into the virtual environment
+```
+git clone https://github.com/Firdawws/py-json.git
+```
+- And to deactivate the environment:
+```
+deactivate
+```
+- Download the project directory and move it into the python environment
+
 ## Extract Data from JSONL to Excel 
 This Python script extracts data from a JSONL file and creates an Excel file with selected attributes. It uses the argparse library for command-line argument handling and the pandas library for working with data in DataFrames.
 
