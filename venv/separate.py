@@ -2,7 +2,7 @@ import json
 import os
 
 # Define the input directory containing the original JSONL files
-input_dir = 'dataset/data'
+input_dir = 'dataset/mydataset'
 
 # Define the output directory where the separated JSONL files will be saved
 output_dir = 'output_jsonl'
