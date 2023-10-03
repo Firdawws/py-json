@@ -15,7 +15,7 @@ on mac and linux:
 ```
   source myenv/bin/activate
 ```
-- install pandas:
+- Install pandas:
   ```
   pip install pandas
   ```
