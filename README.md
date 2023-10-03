@@ -1,6 +1,6 @@
 ##  Python3 Development Environment	
 - First you will need to create an python environment by running the following commands:
-- Create Virtual environmen
+- Create Virtual environment
 ```
   python -m venv myenv
 ```
