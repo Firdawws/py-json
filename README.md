@@ -201,7 +201,7 @@ for lang in languages:
 print('Separate JSONL files generated for each language and partition.')
 ```
 ## Project Archive
-A copy of this project can be found on [google drive] (https://drive.google.com/drive/folders/1zws5_6kwJGcnTFvyOO2qrLPvu5gwDVUo?usp=drive_link)
+A copy of this project can be found on [google drive](https://drive.google.com/drive/folders/1zws5_6kwJGcnTFvyOO2qrLPvu5gwDVUo?usp=drive_link)
 - First you will need to create an python environment by running the following commands:
 - Create Virtual environment
 ```
