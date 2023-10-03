@@ -212,7 +212,7 @@ for lang in languages:
 print('Separate JSONL files generated for each language and partition.')
 ```
 ## Combining Multiple JSONL files
-- In this section the aim is to merge the files created in the previous question to one file
+- In this section the aim is to merg the files created in the previous question to one file
 - It offers translation from english to swahili and german
 This Python code performs the following tasks:
 
