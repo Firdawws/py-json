@@ -38,19 +38,16 @@ deactivate
 ## Task 2. Working with the Files
 
 1. Generating JSONL Files:
--  Generated separate JSONL files for English (en), Swahili (sw), and German (de) translations, containing test, train, and dev data.
-Creating Large JSON File:
+-  Generated separate JSONL files for English (en), Swahili (sw), and German (de) translations,
+-   containing test, train, and dev data.
+ 
+2. Creating Large JSON File:
+-Created a large JSON file consolidating translations from en to xx with id and utt for all train sets.
 
-Created a large JSON file consolidating translations from en to xx with id and utt for all train sets.
-E-print Application:
+3. E-print Application:
+-Utilized E-print application to pretty print the JSON file structure.
+-File Backup and Upload:
 
-Utilized E-print application to pretty print the JSON file structure.
-File Backup and Upload:
-
-Uploaded all the generated files to GithHb for referencing as well as editing.
-Version Control:
-
-Uploaded all the changes to GitHub.
 
 
 
